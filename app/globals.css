@@ -1,0 +1,302 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   GOOGLE FONTS
+   ============================================ */
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Great+Vibes&family=Pinyon+Script&family=Bodoni+Moda:ital,opsz,wght@0,6..96,300;0,6..96,400;0,6..96,500;1,6..96,400&family=Italiana&family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@200;300;400;500;600&family=Poppins:wght@300;400;500&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap');
+
+/* ============================================
+   USER REQUESTED THEME VARIABLES
+   ============================================ */
+:root {
+  --background: #F7F5EF;
+  --card: #FFFDF8;
+  --secondary: #EAE6DD;
+  --heading: #242424;
+  --text: #55514B;
+  --border: #D8D2C7;
+  --accent: #C5AD7B;
+  --font-couple: 'Bodoni Moda', 'Playfair Display', 'Italiana', serif;
+  --font-script: 'Great Vibes', 'Alex Brush', 'Pinyon Script', cursive;
+  --font-heading: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --font-body: 'Montserrat', 'Poppins', sans-serif;
+  --font-arabic: 'Amiri', serif;
+}
+
+/* ============================================
+   FONT UTILITIES
+   ============================================ */
+.font-couple {
+  font-family: var(--font-couple);
+}
+.font-script {
+  font-family: var(--font-script);
+}
+.font-heading {
+  font-family: var(--font-heading);
+}
+.font-body {
+  font-family: var(--font-body);
+}
+.font-arabic {
+  font-family: var(--font-arabic);
+  direction: rtl;
+}
+
+/* ============================================
+   BASE RESET
+   ============================================ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ============================================
+   SCROLLBAR
+   ============================================ */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--border);
+}
+
+/* ============================================
+   BUTTON STYLES
+   ============================================ */
+.btn-pill-cream {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 2.2rem;
+  border-radius: 9999px;
+  background: var(--accent);
+  color: #FFFDF8;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 1px solid var(--accent);
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 10px rgba(197, 173, 123, 0.2);
+}
+
+.btn-pill-cream:hover {
+  background: #B79E6C;
+  border-color: #B79E6C;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(197, 173, 123, 0.3);
+}
+
+.btn-pill-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 2.2rem;
+  border-radius: 9999px;
+  background: var(--card);
+  color: var(--heading);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.btn-pill-dark:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--card);
+  transform: translateY(-1px);
+}
+
+/* ============================================
+   INTRO / OPENING SCREEN (Crisp, clean, no blur)
+   ============================================ */
+.intro-fullscreen-container {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--background);
+  overflow: hidden;
+}
+
+.intro-fullscreen-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.intro-overlay-backdrop {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(15, 18, 14, 0.42) 0%,
+    rgba(15, 18, 14, 0.18) 35%,
+    rgba(15, 18, 14, 0.18) 65%,
+    rgba(15, 18, 14, 0.52) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+}
+
+.intro-tap-ring {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.intro-tap-ring::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 9999px;
+  border: 1.5px solid rgba(197, 173, 123, 0.65);
+  animation: ring-pulse 2s ease-in-out infinite;
+}
+
+@keyframes ring-pulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.08); }
+}
+
+.intro-loading-spinner {
+  width: 38px;
+  height: 38px;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ============================================
+   CARDS
+   ============================================ */
+.venue-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+.rsvp-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 2.25rem 2rem;
+  position: relative;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.02);
+}
+
+.family-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 2.25rem 2rem;
+  position: relative;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.02);
+}
+
+.wishes-main-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 2rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.02);
+}
+
+.wish-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1.1rem 1.25rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+}
+
+.wish-card:hover {
+  border-color: var(--accent);
+}
+
+.wishes-grid {
+  scrollbar-gutter: stable;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer-wrap {
+  position: relative;
+}
+
+.footer-wrap::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 50px;
+  background: linear-gradient(to bottom, transparent, var(--border));
+}
+
+::selection {
+  background: rgba(197, 173, 123, 0.25);
+  color: var(--heading);
+}
+
+:focus-visible {
+  outline: 1.5px solid var(--accent);
+  outline-offset: 2px;
+}
