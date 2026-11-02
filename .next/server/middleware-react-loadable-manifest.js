@@ -1,1 +1,0 @@
-self.__REACT_LOADABLE_MANIFEST="{\"components\\\\RSVPSection.jsx -> canvas-confetti\":{\"id\":\"components\\\\RSVPSection.jsx -> canvas-confetti\",\"files\":[\"static/chunks/_app-pages-browser_node_modules_canvas-confetti_dist_confetti_module_mjs.js\"]}}"
